@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SingletonTestApp
 {
-    class TestSingletonLazyB
+    sealed class TestSingletonLazyB
     {
         private static int _singletonCount = 0;
         public static int SingletonCount { get => _singletonCount; }
@@ -14,7 +14,8 @@ namespace SingletonTestApp
             _singletonCount++;
         }
 
-        private static readonly Lazy<TestSingletonLazyB> lazy = new Lazy<TestSingletonLazyB>(() => new TestSingletonLazyB());
+        private static readonly Lazy<TestSingletonLazyB> lazy 
+            = new Lazy<TestSingletonLazyB>(() => new TestSingletonLazyB());
         public static TestSingletonLazyB Instance
         {
             get

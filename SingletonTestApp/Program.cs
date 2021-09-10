@@ -1,8 +1,16 @@
-﻿using System;
+﻿using SingletonTestApp.Singleton;
+using System;
 using System.Threading.Tasks;
 
 namespace SingletonTestApp
 {
+    //class Te : TestSingletonLazy
+    //{
+    //    private Te()
+    //    {
+
+    //    }
+    //}
     class Program
     {
         static void Main(string[] args)
@@ -18,11 +26,11 @@ namespace SingletonTestApp
             Console.WriteLine("Azonos példány? " + (ReferenceEquals(s1, s2) ? "igen" : "nem (upszi)"));
 
 
-
+            //Lazy loading nem szálbiztos singletonnal
             TestSingletonLazy s4 = null;
             TestSingletonLazy s5 = null;
-            var t1 = Task.Factory.StartNew(() => s4 = TestSingletonLazy.GetInstance());
-            var t2 = Task.Factory.StartNew(() => s5 = TestSingletonLazy.GetInstance());
+            var t1 = Task.Factory.StartNew(() => s4 = TestSingletonLazy.Instance);
+            var t2 = Task.Factory.StartNew(() => s5 = TestSingletonLazy.Instance);
             Task.WaitAll(new Task[2]{ t1, t2 });
             Console.WriteLine("Azonos példány? " + (ReferenceEquals(s4, s5) ? "igen" : "nem (upszi)"));
             Console.WriteLine("Singletonok száma: " + TestSingletonLazy.SingletonCount);
@@ -46,6 +54,14 @@ namespace SingletonTestApp
             Task.WaitAll(new Task[2] { t5, t6 });
             Console.WriteLine("Azonos példány? " + (ReferenceEquals(s8, s9) ? "igen" : "nem (upszi)"));
             Console.WriteLine("Singletonok száma: " + TestSingletonLazyB.SingletonCount);
+
+
+            //Connection, MessageService
+            var conn = Connection.Instance;
+            conn.Open();
+            var msgSvc = MessageService.Instance;
+            msgSvc.Send("Hello");
+            conn.Close();
 
         }
 

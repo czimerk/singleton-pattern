@@ -9,22 +9,24 @@ namespace SingletonTestApp
     {
         private static int _singletonCount = 0;
         public static int SingletonCount { get => _singletonCount; }
-
         private TestSingletonLazy()
         {
+            Thread.Sleep(200);
             _singletonCount++;
         }
 
         private static TestSingletonLazy _singleton = null;
-
-        public static TestSingletonLazy GetInstance()
+        public static TestSingletonLazy Instance
         {
-            if (_singleton == null)
+            get
             {
-                Thread.Sleep(200);
-                _singleton = new TestSingletonLazy();
+                if (_singleton == null)
+                {
+                    _singleton = new TestSingletonLazy();
+                }
+                return _singleton;
             }
-            return _singleton;
+
         }
     }
 }

@@ -8,13 +8,14 @@ namespace SingletonTestApp
     /// <summary>
     /// Thread safe version of singleton
     /// </summary>
-    public class TestSingletonLazyT
+    public sealed class TestSingletonLazyT
     {
         private static int _singletonCount = 0;
         public static int SingletonCount { get => _singletonCount; }
 
         private TestSingletonLazyT()
         {
+            Thread.Sleep(200);
             _singletonCount++;
         }
 
@@ -27,7 +28,6 @@ namespace SingletonTestApp
             {
                 if (_singleton == null)
                 {
-                    Thread.Sleep(200);
                     _singleton = new TestSingletonLazyT();
                 }
                 return _singleton;

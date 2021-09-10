@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SingletonTestApp.Singleton
 {
-    class MessageService : IMessageService
+    public sealed class MessageService
     {
        
         private MessageService()
@@ -12,7 +12,8 @@ namespace SingletonTestApp.Singleton
             
         }
 
-        private static readonly Lazy<MessageService> lazy = new Lazy<MessageService>(() => new MessageService());
+        private static readonly Lazy<MessageService> lazy 
+            = new Lazy<MessageService>(() => new MessageService());
         public static MessageService Instance
         {
             get
@@ -20,11 +21,20 @@ namespace SingletonTestApp.Singleton
                 return lazy.Value;
             }
         }
-
         public bool Send(string message)
         {
-
-            return true;
+            //Üzenet elküldése - függőség Connection
+            var connection = Connection.Instance;
+            return SendImpl(message, connection);
+        }
+        private bool SendImpl(string message, Connection conn)
+        {
+            if (conn.IsOpen)
+            {
+                //üzenet küldés
+                return true;
+            }
+            throw new InvalidOperationException("Cannot send message. Connection is not open");
         }
     }
 }
