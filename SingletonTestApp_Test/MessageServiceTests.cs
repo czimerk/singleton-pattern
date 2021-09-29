@@ -9,7 +9,7 @@ namespace SingletonTestApp_Test
         [Fact]
         public void MessageServiceTest_Send()
         {
-            var msgSvc = MessageService.Instance;
+            var msgSvc = MessageServiceNew.Instance;
             Assert.True(msgSvc.Send("hello"));
         }
 
@@ -18,7 +18,7 @@ namespace SingletonTestApp_Test
         {
             var conn = Connection.Instance;
             conn.Open();
-            var msgSvc = MessageService.Instance;
+            var msgSvc = MessageServiceNew.Instance;
             msgSvc.Send("Hello");
             conn.Close();
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SingletonTestApp.Singleton
+namespace DependencyInjectionDemo
 {
     public sealed class MessageService
     {

@@ -28,7 +28,7 @@ namespace TestWebApp
         {
             services.AddSingleton<ISingletonService, SingletonService>();
             services.AddScoped<IScopedService, ScopedService>();
-            services.AddSingleton<ITransientService, TransientService>();
+            services.AddTransient<ITransientService, TransientService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

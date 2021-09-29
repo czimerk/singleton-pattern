@@ -59,7 +59,7 @@ namespace SingletonTestApp
             //Connection, MessageService
             var conn = Connection.Instance;
             conn.Open();
-            var msgSvc = MessageService.Instance;
+            var msgSvc = MessageServiceNew.Instance;
             msgSvc.Send("Hello");
             conn.Close();
 

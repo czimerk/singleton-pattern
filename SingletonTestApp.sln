@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingletonTestApp", "Singlet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApp", "TestWebApp\TestWebApp.csproj", "{437C8B40-023A-4ABF-8A2D-9F8373DB07B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonTestApp_Test", "SingletonTestApp_Test\SingletonTestApp_Test.csproj", "{E2FF0096-476D-43E5-9B5A-302DFD98546D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingletonTestApp_Test", "SingletonTestApp_Test\SingletonTestApp_Test.csproj", "{E2FF0096-476D-43E5-9B5A-302DFD98546D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionDemo", "DependencyInjectionDemo\DependencyInjectionDemo.csproj", "{2D5E9F6F-FD0E-42B3-B0AF-CA37B3F7124E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E2FF0096-476D-43E5-9B5A-302DFD98546D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2FF0096-476D-43E5-9B5A-302DFD98546D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2FF0096-476D-43E5-9B5A-302DFD98546D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5E9F6F-FD0E-42B3-B0AF-CA37B3F7124E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5E9F6F-FD0E-42B3-B0AF-CA37B3F7124E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5E9F6F-FD0E-42B3-B0AF-CA37B3F7124E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5E9F6F-FD0E-42B3-B0AF-CA37B3F7124E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
