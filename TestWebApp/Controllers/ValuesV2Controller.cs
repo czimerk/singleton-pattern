@@ -9,16 +9,15 @@ namespace TestWebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesV2Controller : ControllerBase
     {
-        private readonly ITransientService _transient;
+        //private readonly ITransientService _transient;
         private readonly IScopedService _scoped;
         private readonly ISingletonService _singleton;
 
-        public ValuesController(ISingletonService singleton, 
-            IScopedService scoped, ITransientService transient)
+        public ValuesV2Controller(ISingletonService singleton, IScopedService scoped)
         {
-            _transient = transient;
+            //_transient = transient;
             _scoped = scoped;
             _singleton = singleton;
         }
@@ -26,10 +25,10 @@ namespace TestWebApp.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var j1 = _transient.DoJob("transient job");
+            //var j1 = _transient.DoJob("transient job");
             var j2 = _scoped.DoJob("scoped job");
             var j3 = _singleton.DoJob("singleton job");
-            return new string[] { j1, j2, j3 };
+            return new string[] { j2, j3 };
         }
 
         // GET api/values/5

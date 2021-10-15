@@ -9,20 +9,22 @@ namespace TestWebApp.Services
     {
         private static int _instanceCount = 0;
         private readonly ITransientService _transientService;
-        public SingletonService(ITransientService transient)
-        {
-            _instanceCount++;
-            _transientService = transient;
-        }
-        //runtime error: cannot consume scoped service from singleton
-        //public SingletonService(IScopedService scoped)
+        //public SingletonService(ITransientService transient)
         //{
         //    _instanceCount++;
+        //    _transientService = transient;
         //}
+        //runtime error: cannot consume
+        //scoped service from singleton
+        public SingletonService(ITransientService transientService)
+        {
+            _instanceCount++;
+            _transientService = transientService;
+        }
         public string DoJob(string job)
         {
             job += "'s done, instance count: " + _instanceCount;
-            job += "'transient instance count: " + _transientService.InstanceCount;
+            job += "   transient instance count: " + _transientService.InstanceCount;
             return job;
         }
     }

@@ -9,10 +9,11 @@ namespace TestWebApp.Services
     {
         private static int _instanceCount = 0;
         //private readonly ITransientService _transientService;
+        //public ScopedService(ITransientService transient)
         public ScopedService()
         {
             _instanceCount++;
-            //_transientService = transientService;
+            //_transientService = transient;
         }
         public string DoJob(string job)
         {
